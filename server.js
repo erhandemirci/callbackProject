@@ -75,8 +75,8 @@ router.get('/youtube/callback', (req, res) => {
             console.log('Invalid youtube hook sent to me', channelID, req.headers)
             return res.sendStatus(401)
         }*/
-        bot.youtube.lease.set(channelID, Date.now() + (query['hub.lease_seconds'] * 1000))
-        bot.youtube.pendingVerify.delete(channelID)
+       /* bot.youtube.lease.set(channelID, Date.now() + (query['hub.lease_seconds'] * 1000))
+        bot.youtube.pendingVerify.delete(channelID)*/
         return res.status(202).send(query['hub.challenge'])
     }
 })
