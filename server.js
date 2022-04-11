@@ -77,7 +77,10 @@ router.get('/youtube/callback', (req, res) => {
         }*/
        /* bot.youtube.lease.set(channelID, Date.now() + (query['hub.lease_seconds'] * 1000))
         bot.youtube.pendingVerify.delete(channelID)*/
-        return res.status(202).send(query['hub.challenge'])
+        //return res.status(202).send(query['hub.challenge'])
+        
+        const responseText = req.query['hub.challenge'] || "no challenge" 
+        res.send(responseText)
     }
 })
 
