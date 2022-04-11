@@ -19,7 +19,8 @@ var router = express.Router();
     });
 
 router.get('/youtube/callback', (req, res) => {
-    console.log('here', req.body, req.query, req.params, req.headers)
+    //console.log('here', req.body, req.query, req.params, req.headers)
+    console.log('here', res.body)
     let query = req.query
     if('hub.challenge' in query){
         let channelID = query['hub.topic'].split('=').pop()
@@ -38,7 +39,8 @@ router.get('/youtube/callback', (req, res) => {
 })
 
 router.post('/youtube/callback', (req, res) => {
-    console.log('here post', req.body, req.query, req.params, req.headers)
+    console.log('here', res.body)
+    //console.log('here post', req.body, req.query, req.params, req.headers)
  return req.query['hub.challenge'] 
    // let hmac = generateHMAC(req.query['hub.challenge'], 'very_secret', "sha1")
 })
