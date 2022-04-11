@@ -3,68 +3,20 @@ const express = require('express');
 const app = express();
 const axios = require("axios");
 
-
-
 const apiUrl = "https://www.googleapis.com/youtube/v3";
 const apiKey = "AIzaSyAnY52Lr-hOku3fdxVQLIbm45TpZbDWzvw";
 const channelId = "UC1zAttFQKikWoKH3Vb39ETA";
 
-// we'll create our routes here
-
     // get an instance of router
-    var router = express.Router();
-
-
-
-    router.get('/channel', async function(req, res, next) {
-      try {
-        const searchQuery = req.query.search_query;
-        const url = `${apiUrl}/search?channelId=${channelId}&key=${apiKey}`;
-    console.log(url);
-    
-        const response = await axios.get(url);
-        //const titles = response.data.items.map((item) => item.snippet.title);
-    
-        //res.send(titles);
-    res.send(response.data);
-      } catch (err) {
-        next(err);
-      }
-    });
-        
-router.get('/search', async function(req, res, next) {
-  try {
-    const searchQuery = req.query.search_query;
-    const url = `${apiUrl}/search?channelId=${channelId}&key=${apiKey}&type=video&part=snippet&q=${searchQuery}`;
-console.log(url);
-
-    const response = await axios.get(url);
-    //const titles = response.data.items.map((item) => item.snippet.title);
-
-    //res.send(titles);
-res.send(response.data);
-  } catch (err) {
-    next(err);
-  }
-});
-
-
+var router = express.Router();
 
 
 //https://youtube.googleapis.com/youtube/v3/search?channelId=UC1zAttFQKikWoKH3Vb39ETA&key=AIzaSyAnY52Lr-hOku3fdxVQLIbm45TpZbDWzvw
-
-
 
     // home page route (http://localhost:8080)
     router.get('/', function(req, res) {
         res.send('im the home page!');
     });
-
-    // about page route (http://localhost:8080/about)
-    router.get('/about', function(req, res) {
-        res.send('im the about page!');
-    });
-
 
 router.get('/youtube/callback', (req, res) => {
     console.log('here', req.body, req.query, req.params, req.headers)
@@ -99,11 +51,6 @@ function generateHMAC(hmac, secret, algo = 'sha256'){
     // apply the routes to our application
     app.use('/', router);
 
-
-
- 
-
- 
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
