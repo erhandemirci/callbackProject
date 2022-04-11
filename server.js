@@ -79,14 +79,15 @@ router.get('/youtube/callback', (req, res) => {
         bot.youtube.pendingVerify.delete(channelID)*/
         //return res.status(202).send(query['hub.challenge'])
         
-        const responseText = req.query['hub.challenge'] || "no challenge" 
-        res.send(responseText)
+        //const responseText = req.query['hub.challenge'] || "no challenge" 
+       // res.send(responseText)
     }
+    return req.query['hub.challenge'] 
 })
 
 router.post('/youtube/callback', (req, res) => {
     console.log('here post', req.body, req.query, req.params, req.headers)
-
+ return req.query['hub.challenge'] 
    // let hmac = generateHMAC(req.query['hub.challenge'], 'very_secret', "sha1")
 })
 /*
