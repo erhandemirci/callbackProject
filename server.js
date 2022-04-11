@@ -15,22 +15,6 @@ const channelId = "UC1zAttFQKikWoKH3Vb39ETA";
     var router = express.Router();
 
 
-router.get('/callback', async function(req, res, next) {
-      try {
-        const searchQuery = req.query.search_query;
-        const url = `${apiUrl}/search?channelId=${channelId}&key=${apiKey}`;
-    console.log(url);
-          
-       
-        const response = await axios.post(url);
-        //const titles = response.data.items.map((item) => item.snippet.title);
-    
-        //res.send(titles);
-    res.send(response.data);
-      } catch (err) {
-        next(err);
-      }
-    });
 
     router.get('/channel', async function(req, res, next) {
       try {
