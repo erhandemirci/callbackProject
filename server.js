@@ -84,12 +84,13 @@ router.get('/youtube/callback', (req, res) => {
 router.post('/youtube/callback', (req, res) => {
     console.log('here post', req.body, req.query, req.params, req.headers)
 
-    let hmac = generateHMAC(req.query['hub.challenge'], 'very_secret', "sha1")
+   // let hmac = generateHMAC(req.query['hub.challenge'], 'very_secret', "sha1")
 })
-
+/*
 function generateHMAC(hmac, secret, algo = 'sha256'){
     return `${algo}=${crypto.createHmac(algo, secret).update(hmac).digest('hex')}`
 }
+*/
 
     // apply the routes to our application
     app.use('/', router);
