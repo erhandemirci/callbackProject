@@ -4,7 +4,7 @@ const app = express();
 const axios = require("axios");
 
 const apiUrl = "https://www.googleapis.com/youtube/v3";
-const apiKey = "AIzaSyA3QOaQHNl87Hwi-qZuNezQVNkr2XTar-Y";
+const apiKey = "AIzaSyBlXc-nqwgBRjfVnEglrBzoVTC21-dHBy4";
 const channelId = "UC1zAttFQKikWoKH3Vb39ETA";
 
     // get an instance of router
