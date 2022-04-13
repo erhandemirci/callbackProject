@@ -38,7 +38,7 @@ router.get('/youtube/callback', (req, res) => {
     }
    
     //res.send(req.query['hub.challenge'])
-    res.send(req.body)
+    res.send(req.query)
 })
 
 router.post('/youtube/callback', (req, res) => {
