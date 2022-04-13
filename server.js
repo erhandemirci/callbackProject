@@ -34,9 +34,10 @@ router.get('/youtube/callback', (req, res) => {
         //return res.status(202).send(query['hub.challenge'])
         
         //const responseText = req.query['hub.challenge'] || "no challenge" 
-       // res.send(responseText)
+       // 
     }
-    return req.query['hub.challenge'] 
+   
+    res.send(req.query['hub.challenge'])
 })
 
 router.post('/youtube/callback', (req, res) => {
