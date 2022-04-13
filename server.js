@@ -48,8 +48,7 @@ router.post('/youtube/callback', (req, res) => {
     const hubchallenge = req.query['hub.challenge'];
     const topic = req.query['topic'];
     const hub = req.query['hub'];
-    
-  const { authorization } = req.headers;
+  
   res.send({
     hubchallenge,
     topic,
