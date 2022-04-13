@@ -15,7 +15,8 @@ var router = express.Router();
 
     // home page route (http://localhost:8080)
     router.get('/', function(req, res) {
-        res.send('im the home page!');
+        res.send("google-site-verification=ZPV3ADqzl5x-Z3e_WDGPt1TjgJCzNN3_dxmpDibSy0o");
+        
     });
 
 router.get('/youtube/callback', (req, res) => {
