@@ -21,7 +21,7 @@ var router = express.Router();
 
 router.get('/youtube/callback', (req, res) => {
     //console.log('here', req.body, req.query, req.params, req.headers)
-    console.log('here', res.body)
+    console.log('here', req.body)
     let query = req.query
     if('hub.challenge' in query){
         let channelID = query['hub.topic'].split('=').pop()
@@ -37,7 +37,8 @@ router.get('/youtube/callback', (req, res) => {
        // 
     }
    
-    res.send(req.query['hub.challenge'])
+    //res.send(req.query['hub.challenge'])
+    res.send(req.body)
 })
 
 router.post('/youtube/callback', (req, res) => {
