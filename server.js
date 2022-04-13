@@ -41,9 +41,9 @@ router.get('/youtube/callback', (req, res) => {
 })
 
 router.post('/youtube/callback', (req, res) => {
-    console.log('here', res.body)
+    console.log('here post', res.body)
     //console.log('here post', req.body, req.query, req.params, req.headers)
- return req.query['hub.challenge'] 
+ res.send(req.query['hub.challenge'])
    // let hmac = generateHMAC(req.query['hub.challenge'], 'very_secret', "sha1")
 })
 /*
